@@ -74,7 +74,16 @@ Styling the active navigation items so the user knows where they are (isActive) 
 ```
 
 ### [Relative links](https://reactrouter.com/en/main/start/overview#relative-links) 
-  > Relative links are always relative to the route path they are rendered in, not to the full URL. 
+  > Relative links are always (default) **relative** to the **route path** (parents route) they are rendered in, **not to the full URL**. 
+```js
+<Link
+  to=".."  
+  relative="path" //if don't have this line host/vans/1 => /host
+  className="back-button"
+>
+  &larr; <span>Back to all vans</span>
+</Link>
+```
 
 ## Components
 ### [Link](https://reactrouter.com/en/main/components/link)
