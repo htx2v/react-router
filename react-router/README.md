@@ -31,7 +31,7 @@ The strings in dynamic segments (after colon) could be parsed and provided to va
 
 ### [Nested Routes](https://reactrouter.com/en/main/start/overview#nested-routes) 
 - keep displaying some UI on the page, share UI between components
-- don't need to use absolute links, use [relative links](https://reactrouter.com/en/main/start/overview#relative-links) instead. 
+- don't need to use absolute paths, use [relative links](https://reactrouter.com/en/main/start/overview#relative-links) instead. 
   > Relative links are always relative to the route path they are rendered in, not to the full URL. 
 
 [Pathless Routes](https://reactrouter.com/en/main/start/concepts#pathless-routes) don't have a path
@@ -84,7 +84,8 @@ Styling the active navigation items so the user knows where they are (isActive) 
     }
 ```
 ### useParams
-Child routes inherit all params from their parent routes.
+- The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>.
+- Child routes inherit all params from their parent routes.
 ```js
 import { useParams } from "react-router-dom"
 
