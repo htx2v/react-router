@@ -74,7 +74,18 @@ Styling the active navigation items so the user knows where they are **(isActive
 - Used as a "single source of truth" for certain application state because **react state** will set to its initial value when refresh or share with friends
 - `State` live inside components, `Search Params` live in URL
 - Implements: 
+  - [`<Link>`](#link)
+```js
+ <Link to="."> Clear Filter </Link>
+ <Link to=""> Clear Filter </Link>
+/* Both are the same */
+```
   - [useSearchParams](https://reactrouter.com/en/main/hooks/use-search-params#usesearchparams) 
+```js
+<button onClick={() => setSearchParams("?type=simple")} >
+<button onClick={() => setSearchParams("type=simple")} >
+<button onClick={() => setSearchParams({type: "simple"})} >
+```
 - Useful resources: [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
 ---
