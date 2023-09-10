@@ -95,6 +95,8 @@ Styling the active navigation items so the user knows where they are (isActive) 
         text-decoration: none
     }
 ```
+
+## Hooks
 ### useParams
 - The useParams hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>.
 - Child routes inherit all params from their parent routes.
@@ -105,5 +107,21 @@ export default function VanDetail() {
     const params = useParams()
     console.log(params)  // id:1 
     return <h1>VanDetail go here</h1>
+}
+```
+### useOutletContext
+Often parent routes manage state or other values you want shared with child routes.
+```js
+export default function HostVanInfo() {
+  const { currentVan } = useOutletContext()
+  
+  return (
+    <section className="host-van-detail-info">
+      <h4>Name: <span>{currentVan.name}</span></h4>
+      <h4>Category: <span>{currentVan.type}</span></h4>
+      <h4>Description: <span>{currentVan.description}</span></h4>
+      <h4>Visibility: <span>public</span></h4>
+    </section>
+  )
 }
 ```
