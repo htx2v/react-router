@@ -20,7 +20,7 @@ export default function Vans() {
 
   const vanElements = displayedVans.map(van => (
     <div key={van.id} className="van-tile">
-      <Link to={`/vans/${van.id}`}>
+      <Link to={van.id}>
         <img src={van.imageUrl} />
         <div className="van-info">
             <h3>{van.name}</h3>
@@ -57,18 +57,18 @@ function handleFilterChange(key, value) {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="van-list-filter-buttons">
-          <Link
-            to={genNewSearchParamString("type","simple")}
+          <button
+            onClick={() => handleFilterChange("type","simple")}
             className={`van-type simple ${typeFilter === "simple"? "selected" :""}`}          
           >
             Simple
-          </Link>
-          <Link
-            to={genNewSearchParamString("type","luxury")}
+          </button>
+          <button
+            onClick={() => handleFilterChange("type","luxury")}
             className={`van-type luxury ${typeFilter === "luxury"? "selected" :"" }`}          
           >
             Luxury
-          </Link>
+          </button>
           <button 
             onClick={() => handleFilterChange("type","rugged")}
             className={`van-type rugged ${typeFilter === "rugged"? "selected" :""}`}
