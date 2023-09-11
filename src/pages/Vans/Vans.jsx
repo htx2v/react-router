@@ -30,31 +30,53 @@ export default function Vans() {
       </Link>
     </div>
 ))
+// Using vanilla javaScript with <Link>
+function genNewSearchParamString(key, value) {
+  const newSearchParam = new URLSearchParams(searchParams) // initial value
+  if (value === null) {
+    newSearchParam.delete(key)
+  } else {
+    newSearchParam.set(key, value)
+  } 
+  return `${newSearchParam.toString()}`
+}
+
+// Using setSearchParams
+function handleFilterChange(key, value) {
+  setSearchParams(prevParams => {
+    if (value === null) {
+      prevParams.delete(key)
+    } else {
+      prevParams.set(key, value)
+    }
+    return prevParams
+  })
+}
 
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="van-list-filter-buttons">
-          <button 
-            onClick={() => setSearchParams({type: "simple"})}
-            className="van-type simple"
+          <Link
+            to={genNewSearchParamString("type","simple")}
+            className="van-type simple"          
           >
             Simple
-          </button>
-          <button 
-            onClick={() => setSearchParams({type: "luxury"})}
-            className="van-type luxury"
+          </Link>
+          <Link
+            to={genNewSearchParamString("type","luxury")}
+            className="van-type luxury"          
           >
             Luxury
-          </button>
+          </Link>
           <button 
-            onClick={() => setSearchParams({type: "rugged"})}
+            onClick={() => handleFilterChange("type","rugged")}
             className="van-type rugged"
           >
             Rugged
           </button>
           <button 
-            onClick={() => setSearchParams({})}
+            onClick={() => handleFilterChange("type",null)}
             className="van-type clear-filters"
           >
             Clear Filter

@@ -168,3 +168,4 @@ export default function HostVanInfo() {
 ```
 ### [useSearchParams](https://reactrouter.com/en/main/hooks/use-search-params#usesearchparams) 
 - The `useSearchParams` hook is used to read and modify the query string in the URL for the current location like React's own useState hook.
+- The `useSearchParams` hook can directly modify the previous value (unlike the `useState` hook).
