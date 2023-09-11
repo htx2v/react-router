@@ -59,28 +59,31 @@ function handleFilterChange(key, value) {
       <div className="van-list-filter-buttons">
           <Link
             to={genNewSearchParamString("type","simple")}
-            className="van-type simple"          
+            className={`van-type simple ${typeFilter === "simple"? "selected" :""}`}          
           >
             Simple
           </Link>
           <Link
             to={genNewSearchParamString("type","luxury")}
-            className="van-type luxury"          
+            className={`van-type luxury ${typeFilter === "luxury"? "selected" :"" }`}          
           >
             Luxury
           </Link>
           <button 
             onClick={() => handleFilterChange("type","rugged")}
-            className="van-type rugged"
+            className={`van-type rugged ${typeFilter === "rugged"? "selected" :""}`}
           >
             Rugged
           </button>
-          <button 
-            onClick={() => handleFilterChange("type",null)}
-            className="van-type clear-filters"
-          >
-            Clear Filter
-          </button>
+          { typeFilter && 
+            <button 
+              onClick={() => handleFilterChange("type",null)}
+              className="van-type clear-filters"
+            >
+              Clear Filter
+            </button>
+          }
+          
       </div>
       <div className="van-list">
           {vanElements}
