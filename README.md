@@ -88,12 +88,27 @@ Styling the active navigation items so the user knows where they are **(isActive
 ```
 - Useful resources: [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
+### [History State](https://reactrouter.com/en/main/components/link#state) 
+```js
+<Link 
+  to={van.id} 
+  state={{search: `?${searchParams.toString()}`}}
+>
+```
+### Data Layer APIs
+1. Setting up the [data router](https://reactrouter.com/en/main/routers/picking-a-router) 
+  - [`createBrowserRouter`](https://reactrouter.com/en/main/routers/create-browser-router#createbrowserrouter)
+  - use [`createRoutesFromElements`](https://reactrouter.com/en/main/utils/create-routes-from-elements) if prefer to create routes as JSX instead of object.
+2. use [`loader function`](https://reactrouter.com/en/main/route/loader#loader) provide data to the route element before it renders.
+   - [`useLoaderData`](https://reactrouter.com/en/main/hooks/use-loader-data)
+3. [Error Handling](https://reactrouter.com/en/main/start/overview#error-handling)
+
 ---
 
 ## Components
 ### [`<Link>`](https://reactrouter.com/en/main/components/link)
 
-- `<Link>` renders an accessible `a` element with client side routing (don't refresh the pages and let the browser handle the transition normally) => don't effect **react state**
+- `<Link>` renders an accessible `a` element with client side routing (don't refresh the pages and let the browser handle the transition normally) => don't affect **react state**
 - Styling just like an `a` elements 
 ```css
     a {

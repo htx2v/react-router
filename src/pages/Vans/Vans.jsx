@@ -1,18 +1,17 @@
-import React from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useLoaderData, useSearchParams } from "react-router-dom"
+import { getVans } from "../../api"
+
+export function loader() {
+  return getVans()
+}
 
 export default function Vans() {
 
   const [searchParams, setSearchParams] = useSearchParams()
-  const [vans, setVans] = React.useState([])
+  const vans = useLoaderData()
   
   const typeFilter = searchParams.get("type")
 
-  React.useEffect(() => {
-    fetch("/api/vans")
-    .then(res => res.json())
-    .then(data => setVans(data.vans))
-  }, [])
 
   const displayedVans = typeFilter
     ? vans.filter( van => van.type === typeFilter)
@@ -37,15 +36,15 @@ export default function Vans() {
     </div>
 ))
 // Using vanilla javaScript with <Link>
-function genNewSearchParamString(key, value) {
-  const newSearchParam = new URLSearchParams(searchParams) // initial value
-  if (value === null) {
-    newSearchParam.delete(key)
-  } else {
-    newSearchParam.set(key, value)
-  } 
-  return `${newSearchParam.toString()}`
-}
+// function genNewSearchParamString(key, value) {
+//   const newSearchParam = new URLSearchParams(searchParams) // initial value
+//   if (value === null) {
+//     newSearchParam.delete(key)
+//   } else {
+//     newSearchParam.set(key, value)
+//   } 
+//   return `${newSearchParam.toString()}`
+// }
 
 // Using setSearchParams
 function handleFilterChange(key, value) {
