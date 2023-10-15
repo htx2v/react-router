@@ -100,9 +100,11 @@ Styling the active navigation items so the user knows where they are **(isActive
   - [`createBrowserRouter`](https://reactrouter.com/en/main/routers/create-browser-router#createbrowserrouter)
   - use [`createRoutesFromElements`](https://reactrouter.com/en/main/utils/create-routes-from-elements) if prefer to create routes as JSX instead of object.
 2. use [`loader function`](https://reactrouter.com/en/main/route/loader#loader) provide data to the route element before it renders.
+  Route params are parsed from dynamic segments and passed to your loader. Therefore, there is no need to use [`useParams`].
    - [`useLoaderData`](https://reactrouter.com/en/main/hooks/use-loader-data)
 3. [Error Handling](https://reactrouter.com/en/main/start/overview#error-handling)
 
+### Protected Router
 ---
 
 ## Components
