@@ -15,14 +15,14 @@ import HostVanPricing from "./pages/Host/HostVanPricing"
 import HostVanPhotos from "./pages/Host/HostVanPhotos"
 import NotFound from "./pages/NotFound"
 import Error from "./components/Error"
-import Login from "./pages/Login"
+import Login, {loader as loginLoader} from "./pages/Login"
 import { requireAuth } from "./utils"
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<Error />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="login" element={<Login />} />
+      <Route path="login" element={<Login />} loader={loginLoader} />
       <Route path="vans" element={<Vans />} loader={vansLoader} />
       <Route path="vans/:id" element={<VanDetail />} loader={vansDetailLoader}/>
       
