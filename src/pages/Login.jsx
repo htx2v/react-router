@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, useNavigate } from "react-router-dom"
 import { loginUser } from "../api.js"
 
 export function loader({ request }) {
@@ -11,13 +11,17 @@ export default function Login() {
     const [status, setStatus] = useState("idle")
     const [error, setError] = useState(null)
     const message = useLoaderData()
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
         setStatus("submitting")
         setError(null)
         loginUser(loginFormData)
-            .then(data => console.log(data))   
+            .then(data => {
+                console.log(data)
+                navigate("/host", {replace: true})
+            })   
             .catch(error => setError(error))
             .finally(() => setStatus("idle"))
     }
