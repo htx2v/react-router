@@ -86,6 +86,8 @@ Styling the active navigation items so the user knows where they are **(isActive
 <button onClick={() => setSearchParams("type=simple")} >
 <button onClick={() => setSearchParams({type: "simple"})} >
 ```
+- Using [`Navigate`](https://reactrouter.com/en/main/components/navigate) and [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) to force user navigate.
+  Specifying replace: true will cause the navigation to replace the current entry in the history stack instead of adding a new one.
 - Useful resources: [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
 
 ### [History State](https://reactrouter.com/en/main/components/link#state) 
@@ -137,6 +139,7 @@ A ``<NavLink>`` is a special kind of `<Link>` that knows whether or not it is "a
   className={({isActive}) => isActive ? "active-link" : null}
 >
 ```
+
 
 ### [Outlet](https://reactrouter.com/en/main/components/outlet#outlet)
 An `<Outlet>` should be used in parent route elements to render their child route elements.
