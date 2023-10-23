@@ -115,6 +115,10 @@ Action function is similar to loader function. They both can assess `request` an
     Instructs the form to replace the current entry in the history stack, instead of pushing the new entry.
 1. [`useNavigation`](https://reactrouter.com/en/main/hooks/use-navigation) tells everything about a page navigation to build pending navigation indicators and optimistic UI on data mutations
 
+### [Deferred Data](https://reactrouter.com/en/main/guides/deferred)
+1. `defer` Response
+2. `<Await />` componemt
+3. `<Suspense />` fallback
 
 
 ---
