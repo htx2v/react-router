@@ -4,14 +4,15 @@ import { loginUser } from "../api.js"
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
-export async function action({request}) {
+export async function action({ request }) {
     const formData = await request.formData()
     const email = formData.get("email")
     const password = formData.get("password")
+    const pathName = new URL(request.url).searchParams.get("redirectTo") || "/host"
     try {
         const data = await loginUser({ email, password })
         localStorage.setItem("loggedin",true)
-        const response = redirect("/host")
+        const response = redirect(pathName)
         response.body = true  
         return response
     } catch(err) {
@@ -21,7 +22,6 @@ export async function action({request}) {
 
 export default function Login() {
     const errorMessage = useActionData()
-    console.log(errorMessage)
     const navigation = useNavigation()
     const message = useLoaderData()
 

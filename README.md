@@ -106,13 +106,14 @@ Styling the active navigation items so the user knows where they are **(isActive
   Route `params` are parsed from dynamic segments and passed to your loader. Therefore, there is no need to use [`useParams`].
   loader function also receive a [`request`](https://reactrouter.com/en/main/route/loader#request) 
    - [`useLoaderData`](https://reactrouter.com/en/main/hooks/use-loader-data)
-1. [Error Handling](https://reactrouter.com/en/main/start/overview#error-handling)
+3. [Error Handling](https://reactrouter.com/en/main/start/overview#error-handling)
 #### [Action](https://reactrouter.com/en/main/route/action)
+Action function is similar to loader function. They both can assess `request` and `params` object.
 1. Working with [`formData`](https://developer.mozilla.org/en-US/docs/Web/API/FormData) as a native form in HTML.
 2. The [`Form`](https://reactrouter.com/en/main/components/form) component is a wrapper around a plain HTML form that emulates the browser for client side routing and data mutations. 
   ```<Form replace />```
     Instructs the form to replace the current entry in the history stack, instead of pushing the new entry.
-3. [`useNavigation`](https://reactrouter.com/en/main/hooks/use-navigation) tells everything about a page navigation to build pending navigation indicators and optimistic UI on data mutations
+1. [`useNavigation`](https://reactrouter.com/en/main/hooks/use-navigation) tells everything about a page navigation to build pending navigation indicators and optimistic UI on data mutations
 
 
 
